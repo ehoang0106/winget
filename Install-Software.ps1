@@ -1,7 +1,7 @@
-$packages = @("Microsoft.Office", "GlavSoft.TightVNC", "Adobe.Acrobat.Reader.64-bit", "Google.Chrome")
+$packages = @("Microsoft.Office", "GlavSoft.TightVNC", "Adobe.Acrobat.Reader.64-bit", "Google.Chrome", "Mozilla.FireFox")
 
 
-function IsInstall-Winget {
+function Install-Winget {
     
     if (Get-Command winget -ErrorAction SilentlyContinue) {
         Write-Host "Winget is already installed!"
@@ -28,28 +28,56 @@ function Install-Package {
     winget install -e --id $packages --accept-package-agreements -- accept-source-agreements
 }
 
+
+
 function Uninstall-Package {
     param (
         [string[]] $packages
     )
-    Write-Host "Select app you want to uninstall"
+    Write-Host "Select the app you want to uninstall"
     for ($i = 0; $i -lt $packages.Count; $i++) {
         Write-Host "$($i + 1). $($packages[$i])"
     }
 
     $option = Read-Host "Select"
 
-    for ($i = 0; $i -lt $array.Count; $i++) {
-        if($option -eq "$($i + 1)"){
-            winget uninstall -e $packages[$($i + 1)] -h
+    for ($i = 0; $i -lt $packages.Count; $i++) {
+        if ($option -eq "$($i + 1)") {
+            winget uninstall --id $packages[$i]
+            break
         }
     }
-    
-
-
-
-
-
 }
 
-Uninstall-Package -packages $packages
+function Install-Menu {
+    while ($true) {
+        Write-Host "`n----------------------"
+        Write-Host "Enter (1) to install winget"
+        Write-Host "Enter (2) to install essential software"
+        Write-Host "Enter (3) to uninstall software"
+        Write-Host "Enter (4) to exit"
+        Write-Host "`n----------------------"
+
+        $option = Read-Host "Enter option"
+
+
+        if ($option -eq "1") {
+            Install-Winget
+        }
+        elseif ($option -eq "2") {
+            Install-Package -packages $packages
+        }
+        elseif ($option -eq "3") {
+            Uninstall-Package -packages $packages
+        }
+        elseif ($option -eq "4") {
+            exit
+            
+        }
+        else {
+            Write-Host "Invalid input. Try again!`n"
+        }
+
+    }
+    
+}
