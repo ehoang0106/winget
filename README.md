@@ -1,7 +1,5 @@
 # PowerShell Software Management Script
 
-
-
 ## Overview
 
 This PowerShell script offers a user-friendly interface for managing software installations on Windows systems.
