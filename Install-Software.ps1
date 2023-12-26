@@ -1,4 +1,4 @@
-$packages = @("Microsoft.Office", "GlavSoft.TightVNC", "Adobe.Acrobat.Reader.64-bit", "Google.Chrome", "Mozilla.FireFox")
+$packages = @("Microsoft.Office", "GlavSoft.TightVNC", "Adobe.Acrobat.Reader.64-bit", "Google.Chrome")
 
 
 function Install-Winget {
