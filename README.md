@@ -39,6 +39,7 @@ Modify the `$packages` array to include or exclude the software as per your requ
 
 ## Troubleshooting
 - Ensure run the PowerShell as Administrator.
+- Ensure the `ExecutionPolicy` has been set to `bypass`.
 - Verify that `winget` is installed on your PC.
 
 
