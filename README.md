@@ -15,6 +15,7 @@ It utilizes the `winget` command-line tool for installing, uninstalling, and man
 ## Prerequisites
 
 - Operating System: Windows 10 or newer
+- Set `ExecutionPolicy` to `bypass`
 - PowerShell Version: 5.1 or higher
 - Required: Active internet connection
 - Administrator Privilage
