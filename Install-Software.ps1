@@ -5,8 +5,7 @@ function Install-Winget {
     
     if (Get-Command winget -ErrorAction SilentlyContinue) {
         Write-Host "Winget is already installed!"
-        Write-Host "Continue in 2s"
-        Start-Sleep 2
+    
     }
     else {
         $progressPreference = 'silentlyContinue'
@@ -81,3 +80,5 @@ function Install-Menu {
     }
     
 }
+
+Install-Menu;
